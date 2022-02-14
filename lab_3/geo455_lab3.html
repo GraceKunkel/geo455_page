@@ -1,10 +1,96 @@
+
 <!DOCTYPE html>
 <html>
     <head>
        <title>geo455_lab3</title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <style type="text/css">
+#container {
+	height: relative;
+	width: relative;
+	margin-top: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+}
+#container #map {
+	background-color: lightblue;
+	height: 850px;
+    }
+#container #header {
+    font-size: 2em;
+    font-family: "Garamond", serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    background-color: darkseagreen;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    }
+#container #leftMenu {
+	position: static;
+    background-color: floralwhite;
+	width: 300px;
+    top: 100px;
+    left: 50px;
+	float: left;
+	height: 830px;
+	margin: 0px;
+    font-size: 1em;
+    font-family: "Garamond", serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    background-color: floralwhite;
+    border: 1px solid black;
+    border-radius: 3px;
+    z-index: 800;
+}
+#container #footer {
+    clear: both;
+	font-family: "Garamond", serif;
+	font-size: 1em;
+    letter-spacing: .04em;
+	height: 25px;
+	background-color: darkseagreen;
+    border: 1px solid black;
+	text-align: center;
+	padding-top: 3px;
+	font-style: italic;
+}
+body {
+	background-color: #DDECCC;
+}
+</style>
+
     </head>
-         <body bgcolor="#EDDD9E">
-       <h1 align="center">Lab 3</h1>
-       
+    <body>
+        <div id="container">
+            <div id="header">Lab 3: East Coast Cities </div>
+            <div id="leftMenu">
+                <p>Over my life, I have been able to travel quite a bit. Here are the East Coast Cities I have visted. Here are the places I visited in chronological order - 1. is the first city I visited in the East Coast:</p>
+                    <ol type="1">
+                        <li>Boston</li>
+                        <li>Salem</li>
+                        <li>New York</li>
+                        <li>Philadelphia</li>
+                        <li>Pittsburgh</li>
+                        <li>Hartford</li>
+                        <li>Washington DC</li>
+                        <li>Richmond</li>
+                        <li>Raleigh</li>      
+                        <li>Fayetteville</li>
+                        <li>Emerald Isle</li>
+                        <li>Portland</li>
+                    </ol>
+                <p><img style="width: relative; height: 150px;" src="images/nyc_chinatown2016.JPG" alt="New York China Town"></p>
+                <p><i><sup>Photo Credits: Grace Kunkel (2016)</sup></i></p>
+                </div>
+            <div id="map"></div>
+                <script src="map_lab3.js"></script>
+            <div id="footer">Map developed by Grace Kunkel</div>
+        </div>
      </body>
 </html>

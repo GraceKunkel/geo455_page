@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body bgcolor="#FFF481">
 
 <h2>JavaScript For Loop</h2>
 
 <p id="demo"></p>
 <p id="demo1"></p>
 <p id="demo2"></p>
-
+<p id="demo3"></p>
 <script>
     var num = "";
     
-    for (var i = 0; i < 10; i++) { // change 51 to a different number
-        num += "The number is " + i + "<br>";
+    for (var i = 1; i < 34; i++) { // change 51 to a different number
+        num += "The number will be " + i + "<br>";
     }
     document.getElementById("demo").innerHTML = num;
     
     var num_brk = "";
     
-    for (var z = 0; z < 10; z++) {
-        if(z===5) {break;}
+    for (var z = 1; z < 1000; z++) {
+        if(z===23) {break;}
         num_brk += "The number is " + z + " lets loop again" + "<br>";
     }
     document.getElementById("demo1").innerHTML = num_brk;
@@ -33,9 +33,19 @@
         carnames += cars[j] + "<br>";
     }
     document.getElementById("demo2").innerHTML = carnames;
+    
+
+    const films = ["Star Trek I", "Star Trek II", "Star Trek III", "Star Trek IV", "Star Trek V", "Star Trek VI"];
+    
+    var filmnames = "";
+    
+    for (var k = 0; k < films.length; k++) {
+        filmnames += films[k] + "<br>";
+    }
+    document.getElementById("demo3").innerHTML = filmnames;
 
 </script>
 
-
+    <h3 align="center"><a href='geo455_ex3.html'>Go back to main page</a></h3>
 </body>
 </html>

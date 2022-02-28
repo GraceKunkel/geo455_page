@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event object</title>
+    </head>
+    <body bgcolor="#FDDF3A">
+        <p id="position"></p>
+        <script>
+            var page_coord = document.getElementById("position");
+            document.addEventListener("mousemove", function(e) {
+                page_coord.innerHTML = e.pageX + " " + e.pageY;
+            });
+        </script>
+        <h3 align="center"><a href='geo455_ex4.html'>Go back to main page</a></h3>
+    </body>
+</html>

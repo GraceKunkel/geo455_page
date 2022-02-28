@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Populating list</title>
+        <title>List of cat breeds</title>
     </head>
     <body bgcolor="#E89F69">
-        <p>The Great Lakes and St. Lawrence Governors and Premiers have identified the <it>“least wanted” aquatic invasive species (AIS)</it> that present an imminent threat to the Great Lakes-St. Lawrence River region. Here is the list:</p>
+        <p>This is a random list of cat breeds. They are not ordered by favorites. Here is the list:</p>
         
-        <ul id="species"></ul> //convert to ordered list
+        <ul id="species"></ul> 
         
-        <p>It was created dynamically using JavaScript.</p>
+        <p>I hope you enjoyed my list</p>
         <script>
-            var data = ["Bighead carp", "Silver carp", "Grass carp", "Black Carp", "Northern snakehead", "Stone moroko", "Zander", "Wels catfish", "Tench", "Killer shrimp", "Yabby (crayfish)", "Golden mussel", "New Zealand mud snail", "Hydrilla", "Brazilian elodea", "Water soldier", "Marmorkreb (marbled crayfish)", "European water chestnut", "Parrot feather", "European frogbit", "Yellow floating heart" ];
+            var data = ["Turkish Angora", "Turkish Van", "American Short Hair", "Tuxedo", "Tabby", "British Short Hair", "Maine Coon", "Sphynx", "Manx", "Bengal", "Persian", "Ragdoll", "Munchkin", "Scottish Fold", "Norwegian Forest", "Savannah", "Siberian", "Russian Blue", "Chartreux", "Burmese", "Toyger" ];
             var html = "";
             data.forEach(function(element) {
                 html += "<li><i>" + element + "</i></li>";

@@ -1,0 +1,134 @@
+<html>
+   <head>
+       <title>geo455_final_project</title>
+       
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+       
+       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+       
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
+       
+       <script src="https://unpkg.com/esri-leaflet@3.0.7/dist/esri-leaflet.js"
+        integrity="sha512-ciMHuVIB6ijbjTyEdmy1lfLtBwt0tEHZGhKVXDzW7v7hXOe+Fo3UA1zfydjCLZ0/vLacHkwSARXB5DmtNaoL/g=="
+        crossorigin=""></script>
+
+      <script src="https://unpkg.com/esri-leaflet-vector@3.1.2/dist/esri-leaflet-vector.js"
+            integrity="sha512-SnA/TobYvMdLwGPv48bsO+9ROk7kqKu/tI9TelKQsDe+KZL0TUUWml56TZIMGcpHcVctpaU6Mz4bvboUQDuU3w=="
+            crossorigin=""></script>
+       
+       <style>
+            #container {
+                height: relative;
+                width: relative;
+                margin-top: auto;
+                margin-right: auto;
+                margin-bottom: auto;
+                margin-left: auto;}
+           #header{
+               background-color: dimgrey;
+               padding: 5px;
+               font-family: "Garamond", sans-serif;
+               text-align: center;
+               color: aliceblue;
+           }
+           .button {
+               background-color: #CBA1DC; 
+               border: 1px solid white;
+               color: black;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;
+               font-size: 16px;
+               border-radius: 6px;
+               display: block;
+               width: 200px;
+               height: 50px;
+           }
+           #container #leftmenu{
+                position: static;
+                width: 220px;
+                top: 10px;
+                left: 50px;
+                padding: 10px 15px;
+                float: left;
+                height: 780px;
+                margin: 0;
+                font-size: 1em;
+                font-family: "Lora", serif;
+                letter-spacing: .04em;
+                background-color: #9ebcda;
+                border: 1px solid black;
+                border-radius: 3px;
+               
+           }
+          #splasher1{
+               background-color: lightblue;
+               padding: 2px;
+               width: auto;
+               left: 20px;
+               margin-right: auto;
+               opacity: 0.7;
+               position: absolute;
+               top: 500px;
+           }
+           #splasher2{
+               background-color: ghostwhite;
+               padding: 2px;
+               width: 210px;
+               left: 20px;
+               margin-left: auto;
+               margin-right: auto;
+               opacity: 0.7;
+               position: absolute;
+               top: 350px;
+               display: block;
+           }
+           #container #map{
+               height: 800px;
+               position: relative;
+           }
+           
+           html {
+               background-color: gray;
+           }
+           .hidden { 
+               display: none; 
+           }
+       </style>
+    </head>
+
+	
+   <body>
+       <div id= "container">
+       <div id = "header">
+       <h1> Lab 8: Mapping with ESRI leaflet and jQuery</h1> 
+       </div>
+       
+           <div id="leftmenu">
+               <button id="btn1" class="button">Show Legend</button>
+               <button id="btn2" class="button">Hide Legend</button>
+               <button id="btn3" class="button">Show about map</button>
+               <button id="btn4" class="button">Hide about map</button>
+           </div>
+            <div id= "splasher1" class="hidden">
+                <h2>Legend</h2>
+                    <img src="legend.jpg" width="175" height="300" align='center'><img>
+            </div>
+            <div id= "splasher2" class="hidden">
+               <h3>map info</h3>
+                <p>Lately I've been feeling nostalgia for my later childhood years in NY City. This map I plan to make an interactive map that highlights (icons) specific areas in NY I have visited, like shops, museum, or even parks. If I don't do personal highlights (icons of these areas), I will just highlight the areas that are well known to the city (statue of liberty, 9/11 memorial, MOMA, etc.) I also want to create boundaries for the specific NY broughs, to show the spatial area of NYC in general as well. I will add legends (hide or show) and a column for information on my map like lab 8. I'm more than open to more suggestions to map in NYC if you have any.</p>
+            </div>
+        <div id="map"></div>
+            <script src="final.js"></script>
+       </div>
+
+            
+       
+
+   </body>
+</html>

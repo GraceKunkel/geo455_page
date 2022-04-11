@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearest Point</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Load Leaflet from CDN -->
+       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+       
+    <!-- Load TurfJS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+    
+// Bounds   long/lat  - feel free to change
+var bounds = [-91.24767126466358, 43.82383654812337, -91.20748926566223, 43.80826537588756];
+    
+// Initialize map
+var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
+        
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+    {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
+).addTo(mymap);
+
+var poly1 = turf.polygon([[
+  [-122.801742, 45.48565],
+  [-122.801742, 45.60491],
+  [-122.584762, 45.60491],
+  [-122.584762, 45.48565],
+  [-122.801742, 45.48565]
+]]) 
+.addTo(mymap)
+.openPopup();       
+
+var poly2 = turf.polygon([[
+  [-122.520217, 45.535693],
+  [-122.64038, 45.553967],
+  [-122.720031, 45.526554],
+  [-122.669906, 45.507309],
+  [-122.723464, 45.446643],
+  [-122.532577, 45.408574],
+  [-122.487258, 45.477466],
+  [-122.520217, 45.535693]
+]])
+.addTo(mymap)
+.openPopup();
+
+var intersection = turf.intersect(poly1, poly2)
+.addTo(mymap)
+.openPopup();
+
+        
+    </script>
+</body>
+</html>

@@ -1,33 +1,51 @@
+$(document).ready(function() {
+    $("#btn1").click(function(){
+        $("#splasher1").show();
+    });
+    $("#btn2").click(function(){
+        $("#splasher1").hide();
+    });
+    $("#btn3").click(function(){
+        $("#splasher2").fadeIn();
+    });
+    $("#btn4").click(function(){
+        $("#splasher2").fadeOut();
+    });
+});
+
+
+
 // popups
-var greatwallPopup = "Great Wall of China<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/20090529_Great_Wall_8185.jpg/256px-20090529_Great_Wall_8185.jpg' alt='great wall wiki' width='150px'/>";
+var chinatownPopup = "Chinatown <br/><img src='images/chinatown.jpg' alt='Chinatown' width='150px'/>";
 
-var chichenPopup = "Chichen-Itza, Mexico<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/003_El_Castillo_o_templo_de_Kukulkan._Chich%C3%A9n_Itz%C3%A1%2C_M%C3%A9xico._MPLC.jpg/256px-003_El_Castillo_o_templo_de_Kukulkan._Chich%C3%A9n_Itz%C3%A1%2C_M%C3%A9xico._MPLC.jpg' alt='chichen-itza wiki' width='150px'/>";
+var chelseaPopup = "Chelsea Market <br/><img src='images/chelsea.jpg' alt='Chelsea Market' width='150px'/>";
 
-var petraPopup = "Petra, Jordan <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/The_Monastery%2C_Petra%2C_Jordan8.jpg/256px-The_Monastery%2C_Petra%2C_Jordan8.jpg' alt='petra wiki', width='150px'/>";
+var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='images/cementary_first_street.jpg' alt='Trinity Church Cemetery and Mausoleum' width='150px'/>";
 
-var machuPopup = "Machu Pichu, Peru <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/256px-Machu_Picchu%2C_Peru.jpg' alt='machu wiki', width='150px'/>";
+var italyPopup = "Italian Markets and Eateries <br/><img src='images/eat_italy.jpg' alt='Eat-aly' width='150px'/>";
 
-var christPopup = "Christ the Redeemer, Rio de Janeiro <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Aerial_view_of_the_Statue_of_Christ_the_Redeemer.jpg/256px-Aerial_view_of_the_Statue_of_Christ_the_Redeemer.jpg' alt='christ wiki', width='150px'/>";
+var skyPopup = "Sky Scraper <br/><img src='images/near_911_memorial.jpg' alt='Chelsea Market' width='150px'/>";
 
-var coloPopup = "Colosseum, Rome <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Colosseum_in_Rome-April_2007-1-_copie_2B.jpg/256px-Colosseum_in_Rome-April_2007-1-_copie_2B.jpg' alt='colo wiki', width='150px'/>";
+var bayPopup = "Inside the bay <br/><img src='images/in_the_bay.jpg' alt='Inside the bay' width='150px'/>";
 
-var tajPopup = "Taj Mahal, India <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Taj-Mahal.jpg/256px-Taj-Mahal.jpg' alt='taj wiki', width='150px'/>";
+var timessquarePopup = "International Square <br/><img src='images/times_square.jpg' alt='Times Square' width='150px'/>";
 
 
 var customOptions ={'maxWidth': '150','className' : 'custom'};
 
 
 
-// landmark variables
+// landmark variables   
+               
 var landmarks = L.layerGroup();
 
-var greatwall = L.marker([40.43208734303398, 116.570439270903]).bindPopup(greatwallPopup, customOptions).addTo(landmarks);
-var chichen = L.marker([20.6793437423211, -88.56829451227937]).bindPopup(chichenPopup, customOptions).addTo(landmarks);
-var petra = L.marker([30.328713676465735, 35.44444802834926]).bindPopup(petraPopup, customOptions).addTo(landmarks);
-var machupichu = L.marker([-13.162932251747211, -72.54500581780444]).bindPopup(machuPopup, customOptions).addTo(landmarks);
-var christ = L.marker([-22.951728275037908, -43.210412100446604]).bindPopup(christPopup, customOptions).addTo(landmarks);
-var colo = L.marker([41.89040186252818, 12.492252355598225]).bindPopup(coloPopup, customOptions).addTo(landmarks);
-var taj = L.marker([27.175354762373193, 78.04214219760772]).bindPopup(tajPopup, customOptions).addTo(landmarks);
+var chinatown = L.marker([40.71744207225039, -73.99627001020707]).bindPopup(chinatownPopup, customOptions).addTo(landmarks);
+var chelsea = L.marker([40.742454391632684, -74.00596054479202]).bindPopup(chelseaPopup, customOptions).addTo(landmarks);
+var cementary = L.marker([40.707748339051165, -74.0121695631948]).bindPopup(cementaryPopup, customOptions).addTo(landmarks);
+var italy = L.marker([40.74216650344746, -73.99009365978021]).bindPopup(italyPopup, customOptions).addTo(landmarks);
+var sky = L.marker([40.712799797162276, -74.00951935022336]).bindPopup(skyPopup, customOptions).addTo(landmarks);
+var bay = L.marker([40.67123799558315, -74.03329157560897]).bindPopup(bayPopup, customOptions).addTo(landmarks);
+var timessquare = L.marker([40.75817215316672, -73.9802110966538]).bindPopup(timessquarePopup, customOptions).addTo(landmarks);
 
 
 // baselayers
@@ -49,15 +67,10 @@ var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}
     zoomOffset: -1
 });
 
-var topo = L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
-    layers: 'SRTM30-Colored-Hillshade'
-});
-
-
 // map variable
 var mymap = L.map("map", {
-    center: [40.80226505714341, -73.93991945259752], 
-    zoom: 10,
+    center: [40.73365128822354, -74.01733656041654], 
+    zoom: 12,
     layers: [grayscale, landmarks]});
 
 
@@ -65,8 +78,7 @@ var mymap = L.map("map", {
 var baseLayers = {
     'Grayscale': grayscale,
     'Streets': streets,
-    "Hillshade": topo,
-	};
+    };
 
 var overlays = {'Landmarks': landmarks};
 

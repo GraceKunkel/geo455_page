@@ -2,6 +2,7 @@
    <head>
        <title>geo455_final_project</title>
        
+       <script src="leaflet.ajax.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -12,6 +13,7 @@
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
+ 
        
        <script src="https://unpkg.com/esri-leaflet@3.0.7/dist/esri-leaflet.js"
         integrity="sha512-ciMHuVIB6ijbjTyEdmy1lfLtBwt0tEHZGhKVXDzW7v7hXOe+Fo3UA1zfydjCLZ0/vLacHkwSARXB5DmtNaoL/g=="
@@ -106,29 +108,27 @@
    <body>
        <div id= "container">
        <div id = "header">
-       <h1> Lab 8: Mapping with ESRI leaflet and jQuery</h1> 
+       <h1> New York visit 2017</h1> 
        </div>
        
            <div id="leftmenu">
-               <button id="btn1" class="button">Show Legend</button>
-               <button id="btn2" class="button">Hide Legend</button>
+               <button id="btn1" class="button">Show airplane photo</button>
+               <button id="btn2" class="button">Hide airplane photo</button>
                <button id="btn3" class="button">Show about map</button>
                <button id="btn4" class="button">Hide about map</button>
            </div>
             <div id= "splasher1" class="hidden">
-                <h2>Legend</h2>
-                    <img src="legend.jpg" width="175" height="300" align='center'><img>
+               
+                    <img src="images/overhead.JPG" width="175" height="200" align='center'><img>
             </div>
             <div id= "splasher2" class="hidden">
-               <h3>map proposal</h3>
-                <p>It would be not only fun but informational to create an interactive make of New York City. The citylayout is familar and the place of a large section of my childhood living there. The interactive parts of this webmap are stated in word document. This project is open to suggestions for anything more to add for interactivity. </p>
+               <h3>About Map</h3>
+                <p>Each point/popup is a photo I had taken on my trip to NYC to see my dad and step-mom get married in November 2017.</p>
             </div>
         <div id="map"></div>
             <script src="final.js"></script>
        </div>
-
-            
-       
+           
 
    </body>
 </html>

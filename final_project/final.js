@@ -1,143 +1,114 @@
-<html>
-   <head>
-       <title>geo455_final_project</title>
-       
-       <script src="leaflet.ajax.min.js"></script>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-       
-       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
-        <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-        <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
- 
-       
-       <script src="https://unpkg.com/esri-leaflet@3.0.7/dist/esri-leaflet.js"
-        integrity="sha512-ciMHuVIB6ijbjTyEdmy1lfLtBwt0tEHZGhKVXDzW7v7hXOe+Fo3UA1zfydjCLZ0/vLacHkwSARXB5DmtNaoL/g=="
-        crossorigin=""></script>
+//button functions
+$(document).ready(function() {
+    $("#btn1").click(function(){
+        $("#splasher1").show();
+    });
+    $("#btn2").click(function(){
+        $("#splasher1").hide();
+    });
+    $("#btn3").click(function(){
+        $("#splasher2").fadeIn();
+    });
+    $("#btn4").click(function(){
+        $("#splasher2").fadeOut();
+    });
+});
 
-      <script src="https://unpkg.com/esri-leaflet-vector@3.1.2/dist/esri-leaflet-vector.js"
-            integrity="sha512-SnA/TobYvMdLwGPv48bsO+9ROk7kqKu/tI9TelKQsDe+KZL0TUUWml56TZIMGcpHcVctpaU6Mz4bvboUQDuU3w=="
-            crossorigin=""></script>
-       
-       <script src="borough_boundary.js"></script>
-        <script src="subway_stations.js"></script>
-         <script src="subway_lines.js"></script>
-       
-       <style>
-            #container {
-                height: relative;
-                width: relative;
-                margin-top: auto;
-                margin-right: auto;
-                margin-bottom: auto;
-                margin-left: auto;}
-           #header{
-               background-color: dimgrey;
-               padding: 5px;
-               font-family: "Garamond", sans-serif;
-               text-align: center;
-               color: lightblue;
-           }
-           .button {
-               background-color: lightgrey; 
-               border: 1px solid black;
-               color: black;
-               text-align: center;
-               text-decoration: none;
-               display: inline-block;
-               font-size: 16px;
-               border-radius: 6px;
-               display: block;
-               width: 200px;
-               height: 50px;
-           }
-           #container #leftmenu{
-                position: static;
-                width: 220px;
-                top: 10px;
-                left: 50px;
-                padding: 10px 15px;
-                float: left;
-                height: 780px;
-                margin: 0;
-                font-size: 1em;
-                font-family: "Garamond", sans-serif;
-                letter-spacing: .04em;
-                background-color: powderblue;
-                border: 1px solid black;
-                border-radius: 3px;
+
+
+// popups
+var chinatownPopup = "Chinatown <br/><img src='images/chinatown.jpg' alt='Chinatown' width='150px'/>";
+
+var chelseaPopup = "Chelsea Market <br/><img src='images/chelsea.jpg' alt='Chelsea Market' width='150px'/>";
+
+var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='images/cementary_first_street.jpg' alt='Trinity Church Cemetery and Mausoleum' width='150px'/>";
+
+var italyPopup = "Italian Markets and Eateries <br/><img src='images/eat_italy.jpg' alt='Eat-aly' width='150px'/>";
+
+var skyPopup = "Sky Scraper <br/><img src='images/near_911_memorial.jpg' alt='Chelsea Market' width='150px'/>";
+
+var bayPopup = "Inside the bay <br/><img src='images/in_the_bay.jpg' alt='Inside the bay' width='150px'/>";
+
+var timessquarePopup = "International Square <br/><img src='images/times_square.jpg' alt='Times Square' width='150px'/>";
+
+
+var customOptions ={'maxWidth': '150','className' : 'custom'};
+
+
+
+// landmark variables   
                
-           }
-          #splasher1{
-               background-color: black;
-               padding: 2px;
-               width: auto;
-               left: 20px;
-               margin-right: auto;
-               opacity: 0.7;
-               position: absolute;
-               top: 500px;
-           }
-           #splasher2{
-               background-color: ghostwhite;
-               padding: 2px;
-               width: 210px;
-               left: 20px;
-               margin-left: auto;
-               margin-right: auto;
-               opacity: 0.7;
-               position: absolute;
-               top: 350px;
-               display: block;
-           }
-           #container #map{
-               height: 800px;
-               position: relative;
-           }
-           
-           html {
-               background-color: gray;
-           }
-           .hidden { 
-               display: none; 
-           }
-       </style>
-    </head>
+var landmarks = L.layerGroup();
 
-	
-   <body>
-       <div id= "container">
-       <div id = "header">
-       <h1> New York visit 2017</h1> 
-       </div>
-       
-           <div id="leftmenu">
-               <button id="btn1" class="button">Show airplane photo</button>
-               <button id="btn2" class="button">Hide airplane photo</button>
-               <button id="btn3" class="button">Show about map</button>
-               <button id="btn4" class="button">Hide about map</button>
-           </div>
-            <div id= "splasher1" class="hidden">
-               
-                    <img src="images/overhead.JPG" width="175" height="200" align='center'><img>
-            </div>
-            <div id= "splasher2" class="hidden">
-               <h3>About Map</h3>
-                <p>Click each popup represents a location of a photo taken in NYC (2017). Click the popup and look at the image if desired, small description given. All photos were taken by Grace Kunkel. On the right of the page, user is able to turn off layers to visualized just images, or interact with different layers such as subway lines, subway stations, and the boroughs of NYC. </p>
-                
-               <h5 align="center"><a href='../index.html'>Go back to main page</a></h5>
-            </div>
-        <div id="map"></div>
-            <script src="final.js"></script>
-       </div>
-           
+var chinatown = L.marker([40.71744207225039, -73.99627001020707]).bindPopup(chinatownPopup, customOptions).addTo(landmarks);
+var chelsea = L.marker([40.742454391632684, -74.00596054479202]).bindPopup(chelseaPopup, customOptions).addTo(landmarks);
+var cementary = L.marker([40.707748339051165, -74.0121695631948]).bindPopup(cementaryPopup, customOptions).addTo(landmarks);
+var italy = L.marker([40.74216650344746, -73.99009365978021]).bindPopup(italyPopup, customOptions).addTo(landmarks);
+var sky = L.marker([40.712799797162276, -74.00951935022336]).bindPopup(skyPopup, customOptions).addTo(landmarks);
+var bay = L.marker([40.67123799558315, -74.03329157560897]).bindPopup(bayPopup, customOptions).addTo(landmarks);
+var timessquare = L.marker([40.75817215316672, -73.9802110966538]).bindPopup(timessquarePopup, customOptions).addTo(landmarks);
 
-   </body>
-</html>
+
+// baselayers
+var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2NoYXVkaHVyaSIsImEiOiJjazBtcG5odG8wMDltM2JtcjdnYTgyanBnIn0.qwqjMomdrBMG36GQKXBlMw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1
+});
+
+var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2NoYXVkaHVyaSIsImEiOiJjazBtcG5odG8wMDltM2JtcjdnYTgyanBnIn0.qwqjMomdrBMG36GQKXBlMw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/light-v9',
+    tileSize: 512,
+    zoomOffset: -1
+});
+
+
+// map variable
+var mymap = L.map("map", {
+    center: [40.73365128822354, -74.01733656041654], 
+    zoom: 11,
+    layers: [grayscale, landmarks]});
+
+
+
+
+var myIcon = new L.Icon({
+     iconSize: [10, 10],
+     iconAnchor: [10, 15],
+     popupAnchor:  [1, -24],
+     iconUrl: 'icons/sub.png'
+ });
+
+
+var borough = L.geoJSON(borough).addTo(mymap);
+
+var stations = L.geoJSON(stations, {
+    pointToLayer: function (feature, latlng) {
+            var marker = L.marker(latlng,{icon: myIcon});
+            return marker;
+        }}).addTo(mymap);
+
+var subway = L.geoJSON(subway).addTo(mymap);
+
+
+// menu items
+var baseLayers = {
+    'Grayscale': grayscale,
+    'Streets': streets,
+    };
+
+var overlays = {
+    'Landmarks': landmarks,
+    'Boroughs': borough,
+    'Subway Stations': stations,
+    'Subway Lines': subway,
+};
+
+// the menu
+var layerControl = L.control.layers(baseLayers, overlays, {collapsed: false}).addTo(mymap); //collapsed: true - has the menu hidden or falso - menu opened and cannot disappear

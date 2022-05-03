@@ -1,3 +1,4 @@
+//button functions
 $(document).ready(function() {
     $("#btn1").click(function(){
         $("#splasher1").show();
@@ -67,11 +68,33 @@ var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}
     zoomOffset: -1
 });
 
+
 // map variable
 var mymap = L.map("map", {
     center: [40.73365128822354, -74.01733656041654], 
-    zoom: 12,
+    zoom: 11,
     layers: [grayscale, landmarks]});
+
+
+
+
+var myIcon = new L.Icon({
+     iconSize: [10, 10],
+     iconAnchor: [10, 15],
+     popupAnchor:  [1, -24],
+     iconUrl: 'icons/sub.png'
+ });
+
+
+var borough = L.geoJSON(borough).addTo(mymap);
+
+var stations = L.geoJSON(stations, {
+    pointToLayer: function (feature, latlng) {
+            var marker = L.marker(latlng,{icon: myIcon});
+            return marker;
+        }}).addTo(mymap);
+
+var subway = L.geoJSON(subway).addTo(mymap);
 
 
 // menu items
@@ -80,7 +103,12 @@ var baseLayers = {
     'Streets': streets,
     };
 
-var overlays = {'Landmarks': landmarks};
+var overlays = {
+    'Landmarks': landmarks,
+    'Boroughs': borough,
+    'Subway Stations': stations,
+    'Subway Lines': subway,
+};
 
 // the menu
-var layerControl = L.control.layers(baseLayers, overlays, {collapsed: true}).addTo(mymap); //collapsed: true - has the menu hidden or falso - menu opened and cannot disappear
+var layerControl = L.control.layers(baseLayers, overlays, {collapsed: false}).addTo(mymap); //collapsed: true - has the menu hidden or falso - menu opened and cannot disappear

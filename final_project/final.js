@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
 // popups
-var chinatownPopup = "Chinatown" <br><img src="/images/chinatown.JPG" alt="Chinatown" width="150px">;
+var chinatownPopup = "Chinatown" <br><img src="chinatown.JPG" alt="Chinatown" width="150px">;
 
 var chelseaPopup = "Chelsea Market <br/><img src='images/chelsea.JPG' alt='Chelsea Market' width='150px'/>";
 

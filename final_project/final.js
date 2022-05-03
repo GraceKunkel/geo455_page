@@ -17,11 +17,11 @@ $(document).ready(function() {
 
 
 // popups
-var chinatownPopup = "Chinatown <br/><img src='chinatown.jpg' alt='Chinatown' width='150px'/>";
+var chinatownPopup = "Chinatown <br/><img src='images/chinatown.JPG' alt='Chinatown' width='150px'/>";
 
-var chelseaPopup = "Chelsea Market <br/><img src='chelsea.jpg' alt='Chelsea Market' width='150px'/>";
+var chelseaPopup = "Chelsea Market <br/><img src='images/chelsea.JPG' alt='Chelsea Market' width='150px'/>";
 
-var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='cementary_first_street.jpg' alt='Trinity Church Cemetery and Mausoleum' width='150px'/>";
+var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='images/cementary_first_street.JPG' alt='Trinity Church Cemetery and Mausoleum' width='150px'/>";
 
 var italyPopup = "Italian Markets and Eateries <br/><img src='eat_italy.jpg' alt='Eat-aly' width='150px'/>";
 

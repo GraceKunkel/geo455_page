@@ -17,19 +17,19 @@ $(document).ready(function() {
 
 
 // popups
-var chinatownPopup = "Chinatown <br/><img src='chinatown.jpg'/>";
+var chinatownPopup = "img src='chinatown.jpg'";
 
-var chelseaPopup = "Chelsea Market <br/><img src='chelsea.jpg'/>";
+var chelseaPopup = "img src='chelsea.jpg'";
 
-var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='cementary_first_street.jpg'/>";
+var cementaryPopup = "img src='cementary_first_street.jpg'";
 
-var italyPopup = "Italian Markets and Eateries <br/><img src='eat_italy.jpg'/>";
+var italyPopup = "img src='eat_italy.jpg'";
 
-var skyPopup = "Sky Scraper <br/><img src='near_911_memorial.jpg'/>";
+var skyPopup = "img src='near_911_memorial.jpg'";
 
-var bayPopup = "Inside the bay <br/><img src='in_the_bay.jpg'/>";
+var bayPopup = "img src='in_the_bay.jpg'";
 
-var timessquarePopup = "International Square <br/><img src='times_square.jpg'/>";
+var timessquarePopup = "img src='times_square.jpg'";
 
 
 var customOptions ={'maxWidth': '150','className' : 'custom'};

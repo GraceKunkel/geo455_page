@@ -9,7 +9,10 @@
        
        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-       
+     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+        <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
@@ -22,6 +25,10 @@
       <script src="https://unpkg.com/esri-leaflet-vector@3.1.2/dist/esri-leaflet-vector.js"
             integrity="sha512-SnA/TobYvMdLwGPv48bsO+9ROk7kqKu/tI9TelKQsDe+KZL0TUUWml56TZIMGcpHcVctpaU6Mz4bvboUQDuU3w=="
             crossorigin=""></script>
+       
+       <script src="borough_boundary.js"></script>
+        <script src="subway_stations.js"></script>
+         <script src="subway_lines.js"></script>
        
        <style>
             #container {
@@ -36,11 +43,11 @@
                padding: 5px;
                font-family: "Garamond", sans-serif;
                text-align: center;
-               color: aliceblue;
+               color: lightblue;
            }
            .button {
-               background-color: #CBA1DC; 
-               border: 1px solid white;
+               background-color: lightgrey; 
+               border: 1px solid black;
                color: black;
                text-align: center;
                text-decoration: none;
@@ -61,15 +68,15 @@
                 height: 780px;
                 margin: 0;
                 font-size: 1em;
-                font-family: "Lora", serif;
+                font-family: "Garamond", sans-serif;
                 letter-spacing: .04em;
-                background-color: #9ebcda;
+                background-color: powderblue;
                 border: 1px solid black;
                 border-radius: 3px;
                
            }
           #splasher1{
-               background-color: lightblue;
+               background-color: black;
                padding: 2px;
                width: auto;
                left: 20px;
@@ -123,9 +130,9 @@
             </div>
             <div id= "splasher2" class="hidden">
                <h3>About Map</h3>
-                <p>Each point/popup is a photo I had taken on my trip to NYC to see my dad and step-mom get married in November 2017.</p>
-		    <h5 align="center"><a href='../index.html'>Go back to main page</a></h5>
-
+                <p>Click each popup represents a location of a photo taken in NYC (2017). Click the popup and look at the image if desired, small description given. All photos were taken by Grace Kunkel. On the right of the page, user is able to turn off layers to visualized just images, or interact with different layers such as subway lines, subway stations, and the boroughs of NYC. </p>
+                
+               <h5 align="center"><a href='../index.html'>Go back to main page</a></h5>
             </div>
         <div id="map"></div>
             <script src="final.js"></script>

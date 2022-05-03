@@ -16,24 +16,24 @@ $(document).ready(function() {
 
 
 
+
 // popups
-var chinatownPopup = "img src='chinatown.jpg'";
+var chinatownPopup = "Chinatown <br/><img src='images/chinatown.jpg' alt='Chinatown' width='150px'/>";
 
-var chelseaPopup = "img src='chelsea.jpg'";
+var chelseaPopup = "Chelsea Market <br/><img src='images/chelsea.jpg' alt='Chelsea Market' width='150px'/>";
 
-var cementaryPopup = "img src='cementary_first_street.jpg'";
+var cementaryPopup = "Trinity Church Cemetery and Mausoleum <br/><img src='images/cementary_first_street.jpg' alt='Trinity Church Cemetery and Mausoleum' width='150px'/>";
 
-var italyPopup = "img src='eat_italy.jpg'";
+var italyPopup = "Italian Markets and Eateries <br/><img src='images/eat_italy.jpg' alt='Eat-aly' width='150px'/>";
 
-var skyPopup = "img src='near_911_memorial.jpg'";
+var skyPopup = "Sky Scraper <br/><img src='images/near_911_memorial.jpg' alt='Chelsea Market' width='150px'/>";
 
-var bayPopup = "img src='in_the_bay.jpg'";
+var bayPopup = "Inside the bay <br/><img src='images/in_the_bay.jpg' alt='Inside the bay' width='150px'/>";
 
-var timessquarePopup = "img src='times_square.jpg'";
+var timessquarePopup = "International Square <br/><img src='images/times_square.jpg' alt='Times Square' width='150px'/>";
 
 
 var customOptions ={'maxWidth': '150','className' : 'custom'};
-
 
 
 // landmark variables   
